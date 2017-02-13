@@ -157,8 +157,8 @@ function OnLoad(Form)
          &nbsp;<br>
         </span>
         <select name="week" class="selectbox" onChange="doDisplayTimetable(NavBar, topDir);">
-<option value="06">06-02-2017</option>
 <option value="07">13-02-2017</option>
+<option value="08">20-02-2017</option>
         </select>
        </nobr>
       </span>
@@ -222,7 +222,7 @@ function OnLoad(Form)
        </span>
        <span class="description">
         Schooljaar 2016 - 2017<img src="punkt.gif"><br>
-        Stand: 10-2-2017 14:52
+        Stand: 13-2-2017 16:04
        </span>
       </nobr>
      </td>

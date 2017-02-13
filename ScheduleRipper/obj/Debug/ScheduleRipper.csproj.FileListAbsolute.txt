@@ -10,3 +10,12 @@ C:\Users\siebr\documents\visual studio 2013\Projects\ScheduleRipper\ScheduleRipp
 C:\Users\siebr\Documents\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\ScheduleRipper.exe.config
 C:\Users\siebr\Documents\Repositories\RadiusScheduleRipper\ScheduleRipper\obj\Debug\ScheduleRipper.exe
 C:\Users\siebr\Documents\Repositories\RadiusScheduleRipper\ScheduleRipper\obj\Debug\ScheduleRipper.pdb
+C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\ScheduleRipper.exe.config
+C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\obj\Debug\ScheduleRipper.exe
+C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\obj\Debug\ScheduleRipper.pdb
+C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\ScheduleRipper.exe
+C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\ScheduleRipper.pdb
+C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\obj\Debug\ScheduleRipper.csprojResolveAssemblyReference.cache
