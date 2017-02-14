@@ -1,14 +1,11 @@
-﻿using HtmlAgilityPack;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Web;
 using System.Xml;
+using System.Windows.Forms;
+using System.Text;
 
 namespace ScheduleRipper
 {
@@ -16,57 +13,33 @@ namespace ScheduleRipper
     {
         private static string path = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
         private static string filePath = path + "/classes.xml";
+        private static WebBrowser browser = new WebBrowser() { ScriptErrorsSuppressed = true };
 
-        public static void StartApp(string cookie)
+        public static void StartApp()
         {
-            try
-            {
-                var request = CreateRequest(cookie);
-
-                if (request == null) return;
-
-                Console.WriteLine("Sending request...");
-                var response = (HttpWebResponse)request.GetResponse();
-                ChangeMessageColor("Response received! details below:");
-                Console.Write("Response status:");
-                ResponseMessage(response.StatusCode);
-                
-                var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                File.WriteAllText(Environment.CurrentDirectory + "/out.txt", responseString);
-
-                Ripper();
-            }
-            catch (Exception e)
-            {
-                ChangeMessageColor(e.ToString(), ConsoleColor.Red);
-            }
+            ChangeMessageColor("Initializing application...", ConsoleColor.Red);
+            browser.Navigate(@"https://portal.rocwb.nl/portalapps/roosters/RC/THW350/frames/navbar.htm");
+            browser.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(Page_LoadComplete);
         }
 
-        private static HttpWebRequest CreateRequest(string cookie)
+        private static void Page_LoadComplete(object sender, EventArgs e)
         {
-            try
+            var element = browser.Document.GetElementById("username");
+            if (element != null)
             {
-                Console.WriteLine("Creating request...");
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://portal.rocwb.nl/portalapps/roosters/RC/THW350/frames/navbar.htm");
-
-                request.KeepAlive = true;
-                request.Headers.Set(HttpRequestHeader.Pragma, "no-cache");
-                request.Headers.Set(HttpRequestHeader.CacheControl, "no-cache");
-                request.Headers.Add("Upgrade-Insecure-Requests", @"1");
-                request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36";
-                request.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8";
-                request.Referer = "https://portal.rocwb.nl/CookieAuth.dll?GetLogon?curl=Z2FportalappsZ2FroostersZ2FRCZ2FTHW350Z2FframesZ2Fnavbar.htm&reason=0&formdir=51";
-                request.Headers.Set(HttpRequestHeader.AcceptLanguage, "nl-NL,nl;q=0.8,en-US;q=0.6,en;q=0.4");
-                request.Headers.Set(HttpRequestHeader.Cookie, cookie);
-
-                ChangeMessageColor("Request succesfully created!");
-
-                return request;
+                ChangeMessageColor("Not logged in, logging in....");
+                browser.Document.GetElementById("username").Focus();
+                browser.Document.GetElementById("username").InnerText = "sk153265";
+                browser.Document.GetElementById("password").Focus();
+                browser.Document.GetElementById("password").InnerText = "26-06-1998";
+                browser.Document.GetElementById("SubmitCreds").Focus();
+                browser.Document.GetElementById("SubmitCreds").InvokeMember("click");
             }
-            catch (Exception ex)
+            else
             {
-                ChangeMessageColor("An error occured! \n" + ex.ToString(), ConsoleColor.Red);
-                return null;
+                ChangeMessageColor("logged in!");
+                File.WriteAllText(Environment.CurrentDirectory + "/out.txt", browser.Document.Body.Parent.OuterHtml, Encoding.GetEncoding(browser.Document.Encoding));
+                Ripper();
             }
         }
 
@@ -128,14 +101,22 @@ namespace ScheduleRipper
                         w.WriteAttributeString("klas", klassen[i]);
                         w.WriteEndElement();
                     }
-
                     w.WriteEndElement();
+                }
+
+                if (File.Exists(Environment.CurrentDirectory + "/out.txt"))
+                {
+                    File.Delete(Environment.CurrentDirectory + "/out.txt");
                 }
             }
             catch (Exception ex)
             {
                 ChangeMessageColor("An error occured! \n" + ex.ToString(), ConsoleColor.Red);
             }
+
+            ChangeMessageColor("Done ripping. Get rekt IT-Works", ConsoleColor.Red);
+            Console.ReadKey();
+            Application.Exit();
         }
 
         public static void ChangeMessageColor(String message, ConsoleColor color = ConsoleColor.Green)
