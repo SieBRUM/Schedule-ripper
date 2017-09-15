@@ -11,11 +11,14 @@ C:\Users\siebr\Documents\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\De
 C:\Users\siebr\Documents\Repositories\RadiusScheduleRipper\ScheduleRipper\obj\Debug\ScheduleRipper.exe
 C:\Users\siebr\Documents\Repositories\RadiusScheduleRipper\ScheduleRipper\obj\Debug\ScheduleRipper.pdb
 C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\ScheduleRipper.exe.config
-C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\obj\Debug\ScheduleRipper.exe
-C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\obj\Debug\ScheduleRipper.pdb
 C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\ScheduleRipper.exe
 C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\ScheduleRipper.pdb
 C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\MySql.Data.dll
+C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\MySql.Web.dll
 C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\bin\Debug\MySql.Data.xml
+C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\obj\Debug\ScheduleRipper.exe
+C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\obj\Debug\ScheduleRipper.pdb
 C:\Users\Siebren Kraak\Repositories\RadiusScheduleRipper\ScheduleRipper\obj\Debug\ScheduleRipper.csprojResolveAssemblyReference.cache

@@ -15,6 +15,10 @@ namespace ScheduleRipper
         private static string filePath = path + "/classes.xml";
         private static WebBrowser browser = new WebBrowser() { ScriptErrorsSuppressed = true };
 
+        const string LOGIN_PASSWORD = "FILL PASSWORD HERE";
+        const string LOGIN_USERNAME = "FILL USERNAME HERE";
+
+
         public static void StartApp()
         {
             ChangeMessageColor("Initializing application...", ConsoleColor.Red);
@@ -29,9 +33,9 @@ namespace ScheduleRipper
             {
                 ChangeMessageColor("Not logged in, logging in....");
                 browser.Document.GetElementById("username").Focus();
-                browser.Document.GetElementById("username").InnerText = "sk153265";
+                browser.Document.GetElementById("username").InnerText = LOGIN_USERNAME;
                 browser.Document.GetElementById("password").Focus();
-                browser.Document.GetElementById("password").InnerText = "26-06-1998";
+                browser.Document.GetElementById("password").InnerText = LOGIN_PASSWORD;
                 browser.Document.GetElementById("SubmitCreds").Focus();
                 browser.Document.GetElementById("SubmitCreds").InvokeMember("click");
             }
@@ -72,9 +76,6 @@ namespace ScheduleRipper
                 NewLineHandling = NewLineHandling.Replace
             };
 
-            Console.WriteLine("Would you like to see all the output? y/whatever");
-            string r = Console.ReadLine().ToLower();
-
             List<string> klassen = list;
 
             try
@@ -92,13 +93,9 @@ namespace ScheduleRipper
 
                     for (int i = 0; i < klassen.Count; i++)
                     {
-                        var code = String.Format("{0:00000}", (i + 1));
-                        if (r == "y")
-                            ChangeMessageColor("saving " + klassen[i] + "    with url: " + code);
-
-                        w.WriteStartElement("klas");
-                        w.WriteAttributeString("ID", code);
-                        w.WriteAttributeString("klas", klassen[i]);
+                        ChangeMessageColor("Writing " + klassen[i]);
+                        w.WriteStartElement("item");
+                        w.WriteString(klassen[i]);
                         w.WriteEndElement();
                     }
                     w.WriteEndElement();
@@ -113,8 +110,8 @@ namespace ScheduleRipper
             {
                 ChangeMessageColor("An error occured! \n" + ex.ToString(), ConsoleColor.Red);
             }
-
-            ChangeMessageColor("Done ripping. Get rekt IT-Works", ConsoleColor.Red);
+            Console.WriteLine();
+            ChangeMessageColor("Done ripping! Saved file to desktop! Press a key to exit...", ConsoleColor.Red);            
             Console.ReadKey();
             Application.Exit();
         }

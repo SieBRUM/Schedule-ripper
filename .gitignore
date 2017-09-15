@@ -19,6 +19,7 @@ Thumbs.db
 *.cache
 *.ilk
 *.log
+*.exe
 [Bb]in
 [Dd]ebug*/
 *.lib
@@ -30,3 +31,13 @@ _ReSharper*/
 .vs/
 #Nuget packages folder
 packages/
+ScheduleRipper/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+ScheduleRipper/obj/Debug/ScheduleRipper.csproj.FileListAbsolute.txt
+ScheduleRipper/obj/Debug/ScheduleRipper.csprojResolveAssemblyReference.cache
+ScheduleRipper/obj/Debug/ScheduleRipper.exe
+ScheduleRipper/obj/Debug/ScheduleRipper.pdb
+ScheduleRipper/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+ScheduleRipper/obj/Debug/ScheduleRipper.csproj.FileListAbsolute.txt
+ScheduleRipper/obj/Debug/ScheduleRipper.csprojResolveAssemblyReference.cache
+ScheduleRipper/obj/Debug/ScheduleRipper.exe
+ScheduleRipper/obj/Debug/ScheduleRipper.pdb
